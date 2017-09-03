@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+    <script>
+
+        var height = 10;
+
+        var width = 30;
+
+        var areal = height*width;
+        var omkrets = 2*height+2*width;
+
+        areal = Math.round(areal);
+        omkrets = Math.round(omkrets); //Runder av til et helttall
+
+        document.write("Arelet er" + " "+  + areal + "kvadratmeter og omkretsen"  + " "+ + omkrets + "meter.");
+
+        var terning = Math.floor(Math.random()*6)+1;
+
+        var tall = Math.random()*10;
+
+        var tall2 = Math.floor(Math.random()*20)+10;
+
+        document.write("<br><br>" + terning + "<br>"
+                + tall + "<br>"
+                + tall2 + "<br>");
+
+        let radius = prompt("Hva er radiusen?");
+
+        var kuleomkrets = 2*Math.PI*radius;
+        var volum = (4*Math.PI*Math.pow(radius, 3))/3;
+        var overflate = 4*Math.PI*Math.pow(radius, 3);
+
+        kuleomkrets = Math.round(kuleomkrets);
+        volum = Math.round(volum);
+        overflate = Math.round(overflate);//RUnder av til et helttall
+
+        document.write("omkretsen av kula er" + " "+ + kuleomkrets + "<br><br>" +
+        "volumet av kula er" + " "+  + volum + "<br>" +
+        "arealet av kulas overflate er" + " "+  + overflate + "<br>");
+
+
+        let antallpoeng =prompt("Antall Poeng");
+        let antallmuligepoeng = prompt("Antall mulige poeng");
+
+        let karakter = ((antallpoeng/antallmuligepoeng)*6);
+
+        karakter = Math.round(karakter);
+
+        document.write("Din karakter er" + " "+ + karakter + "<br><br>");
+
+        let vekt = prompt("Vekt");
+        let høyde = prompt("Høyde");
+
+        let KMI = (vekt/Math.pow(høyde, 2));
+        KMI = Math.round(KMI);
+        document.write("Din KMI er" + " "+ + KMI);
+    </script>
+
+</body>
+</html>

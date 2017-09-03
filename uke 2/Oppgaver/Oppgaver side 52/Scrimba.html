@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+
+        let datamengde = prompt("Datamengde");
+        let antSamtaler = prompt("Antall Samtaler");
+        let ringetid = prompt("Ringetid");
+        let antSMS = prompt("Antall SMS");
+        let antMMS = prompt("Antall MMS");
+
+        let pris = (datamengde*10)+(antSamtaler*0.89)+(ringetid*0.39)+(antSMS*0.69)+(antMMS*1.99);
+
+        pris = Math.round(pris);//Runder av til et helt tall
+
+        document.write("Prisen for ditt program er" + " "+ + pris + + " "+ "kr" );
+
+
+
+
+    </script>
+
+</body>
+</html>
