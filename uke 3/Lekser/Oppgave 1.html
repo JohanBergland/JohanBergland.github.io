@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas</title>
+    <style>
+        #minCanvas {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="minCanvas" width="600" height="400">
+
+
+</canvas>
+
+<script>
+
+
+    var minCanvas = document.getElementById("minCanvas");
+    var ctx = minCanvas.getContext("2d");
+
+    minCanvas.height = innerHeight;
+    minCanvas.width = innerWidth;
+
+
+
+    function degToRad(deg) {
+
+        return Math.PI * deg / 180;
+
+    }
+
+
+
+    function draw() {
+        var x = Math.random()* innerWidth;
+        var y = Math.random()* innerHeight;
+        var r = Math.random()*100;
+
+
+
+
+
+        ctx.beginPath();
+        ctx.fillStyle = `hsla(${Math.random()*360}, 100%, 50%, 0.5)`;
+        ctx.arc(x, y, r, 0, Math.PI * 180);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.arc(x+r/3, y+r/3, r/6, 0, Math.PI * 180);
+        ctx.arc(x-r/3, y-r/3, r/6, 0, Math.PI * 180);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.arc(x+r/15, y+r/120, r/1.5, degToRad(90), degToRad(180));
+        ctx.fill();
+        ctx.closePath();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+    draw();
+    setInterval(draw,100);
+    </script>
+
+</body>
+</html>
