@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Terning</title>
+</head>
+<body>
+ <img id="imgterning" width="200">
+    <script>
+        var imgterning= document.getElementById("imgterning");
+        var terningkast =Math.ceil(Math.random()*6);
+
+        if(terningkast===1){
+            imgterning.src = "terningkast1.jpg";
+        }else if(terningkast===2){
+            imgterning.src = "terningkast2.jpg";
+        }else if(terningkast===3){
+            imgterning.src = "terningkas3.png";
+        }else if(terningkast===4){
+            imgterning.src = "terningkast4.jpg";
+        }else if(terningkast===5){
+            imgterning.src = "terningkast5.jpg";
+        } else if(terningkast ===6){
+            imgterning.src = "terningkast6.jpg";
+        }
+
+
+        document.write(`Du fikk terningkast ${terningkast}`);
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

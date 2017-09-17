@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <img id="imgpokal">
+    <script>
+        var imgpokal = document.getElementById("imgpokal");
+        var svar = prompt("Hva er meningen med livet?");
+        if(svar==="42"){
+          document.write("Du svarte riktig");
+            imgpokal.src = "pokal1.jpg";
+        }
+        else {
+            document.write("Du svarte feil");
+            imgpokal.src = "narr.png";
+        }
+
+
+    </script>
+
+</body>
+</html>

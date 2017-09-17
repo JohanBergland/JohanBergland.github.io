@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fugler</title>
+</head>
+<body>
+    <img id="imgfugl" width="400">
+    <script>
+        var imgfugl = document.getElementById("imgfugl");
+        var fugl =Math.ceil(Math.random()*3);
+        if(fugl===1){
+            imgfugl.src = "kjøttmeis.jpeg";
+        }
+        if(fugl===2){
+            imgfugl.src = "lundefugl.jpg";
+        }
+        if(fugl===3){
+            imgfugl.src = "dompap.jpg";
+        }
+    </script>
+
+</body>
+</html>

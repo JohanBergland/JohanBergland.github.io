@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kalkulator</title>
+</head>
+<body>
+
+    <script>
+        var tall1 = prompt("velg et tall");
+        var tall2 = prompt("velg et til tall");
+        var regneart =prompt("velg en regneart");
+        var sum = Number(tall1) - Number(tall2);
+        var sum2 = Number(tall1) + Number(tall2);
+        var sum3 = Number(tall1) / Number(tall2);
+        var sum4 = Number(tall1) * Number(tall2);
+
+        if (regneart=== "-") {
+            document.write(`${sum}`);
+        }else if (regneart=== "+"){
+            document.write(`${sum2}`);
+        }else if (regneart=== "/") {
+            document.write(`${sum3}`);
+        }else if (regneart=== "*") {
+            document.write(`${sum4}`);
+        }
+
+    </script>
+
+</body>
+</html>

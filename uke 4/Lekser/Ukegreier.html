@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ukegreier</title>
+</head>
+<body>
+
+    <img id="imgfredag" width="400">
+    <script>
+        var imgfredag = document.getElementById("imgfredag");
+        var ukedag =prompt("Hvilken dag er det i dag?");
+        var dato = prompt("Hvilken dato er det i dag?");
+
+        if(ukedag==="Fredag"|| ukedag==="fredag"&&dato ==="13"){
+            document.write("Pass på, i dag er det fredag den 13!");
+            imgfredag.src = "fredag13.jpg";
+        }else if (ukedag==="Fredag"||ukedag==="fredag"){
+            document.write("Endelig helg!!!")
+        }
+
+        else {
+            document.write("Ha en fin dag");
+            imgfredag.src = "FinDag.jpg";
+        }
+
+    </script>
+</body>
+</html>
