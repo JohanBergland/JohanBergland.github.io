@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Irriterende lyd</title>
+    <style>
+        #background {
+            width: 200vh;
+            height: 100vh;
+        }
+    </style>
 </head>
 <body>
 
 <audio id="audio" src="http://www.soundjay.com/button/beep-07.wav"></audio>
+<div id="background">&nbsp</div>
+
+
 
 <script>
    window.onload = function playsound() {
@@ -14,6 +23,15 @@
         sound.play();
        audio.loop="true"
     };
+
+   var i = 0;
+   function change() {
+       var doc = document.getElementById("background");
+       var color = ["black", "blue", "brown", "green"];
+       doc.style.backgroundColor = color[i];
+       i = (i + 1) % color.length;
+   }
+   setInterval(change, 100);
 </script>
 
 </body>
