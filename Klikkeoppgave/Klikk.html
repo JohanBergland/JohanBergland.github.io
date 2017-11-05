@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Klikk</title>
+    <style>
+
+        #bigdiv {
+            position: relative;
+            margin: 0 auto;
+            height: 600px;
+            width: 600px;
+
+        }
+        #Greendiv {
+            background-color: forestgreen;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        #Reddiv {
+            background-color: red;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        #Restart {
+            position: relative;
+
+        }
+        #Restart {
+            margin: 0 auto;
+            display: block;
+            width: 200px;
+            height: 50px;
+        }
+
+        table, tr, th {
+            padding: 15px;
+        }
+
+        table {
+            margin: 0 auto;
+        }
+
+        #Restart {
+            margin-top: 30px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div>
+    <table>
+        <tr>
+            <th>Attempt</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+        </tr>
+        <tr id="leftlist">
+            <th>Left</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr id="rightlist">
+            <th>Right</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </table>
+</div>
+<div id="add"></div>
+<div id="bigdiv">
+    <div id="Reddiv"></div>
+    <div id="Greendiv"></div>
+    </div>
+    <button id="Restart">Restart</button>
+
+
+    <script>
+
+
+
+
+        var leftlist = document.getElementById("leftlist");
+        var rightlist = document.getElementById("rightlist");
+
+
+        var Greendiv = document.getElementById("Greendiv");
+        var Reddiv = document.getElementById("Reddiv");
+        var antall = 0;
+
+
+        var runde = 0;
+        var rundetider = [];
+
+
+        var tidenflyer = false;
+
+        function stoppKlokka() {
+            tidenflyer = false;
+            Greendiv.style.display="none";
+            console.log("Stopper klokka");
+            //TODO -Registrer antall klikk
+
+            rundetider.push(antall);
+            //console.log(rundetider);
+
+            //celle.innerHTML = "TEST";
+
+           var celle;
+
+
+
+
+
+
+         if (runde>=5) {
+            celle  = document.querySelector(`#rightlist th:nth-child(${runde+2 -5})`);
+
+        } else {
+            celle  = document.querySelector(`#leftlist th:nth-child(${runde+2})`);
+        }
+            celle.innerHTML = antall;
+            runde++;
+            antall= 0;//Reset antall
+            setTimeout(reset, 1000);
+
+        }
+        function startKlokka() {
+            tidenflyer = true;
+            //Stopper klokka etter 10 sekunder
+            setTimeout(stoppKlokka, 1000);
+            console.log("Starter klokka");
+
+
+        }
+
+        function tell() {
+            if(tidenflyer){
+                antall++;
+                console.log(antall);
+               // document.getElementById("antallKlikk").textContent=antall;
+            }else {
+                startKlokka();
+            }
+        }
+
+        function reset() {
+            antall = 0;
+            Greendiv.style.display = "";
+
+        }
+        Greendiv.onclick = tell;
+
+        function oppsumering(numbers) {
+
+        }
+
+
+    </script>
+
+</body>
+</html>
