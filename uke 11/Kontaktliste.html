@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kontakter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.css">
+    <style>
+        body {
+            max-width: 600px;
+            padding: 10px;
+            margin: auto;
+
+        }
+
+        #divContact > span{
+            margin-top: 30px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <form id="skjema">
+        <input id="inpFName" type="text" required placeholder="First Name">
+        <input id="inpLName" type="text" required placeholder="Last Name">
+        <input id="inpPhone" type="number" required placeholder="Phone number">
+        <input id="inpEmail" type="text" required placeholder="Email">
+        <button class="button" type="submit">Add Contact</button>
+        <button class="button alert" type="button" onclick="slettMarkerte()">Delete marked contacts</button>
+    </form>
+
+    <div id="divContact"></div>
+
+
+
+    <script>
+
+        var inpFName = document.getElementById("inpFName");
+        var inpLName = document.getElementById("inpLName");
+        var inpPhone = document.getElementById("inpPhone");
+        var inpEmail = document.getElementById("inpEmail");
+        var skjema = document.getElementById("skjema");
+        var divContact = document.getElementById("divContact");
+
+
+        var contacts = [];
+
+
+        function Addcontact(evt) {
+            evt.preventDefault();
+            var contact = {
+                firstname: inpFName.value,
+                lastname: inpLName.value,
+                phonenumber: inpPhone.value,
+                Email: inpEmail.value,
+                marked: false,
+            };
+            contacts.push(contact);
+            console.log(contacts);
+            showContacts();
+        }
+
+
+        function slettMarkerte() {
+            var umarkerte = [];
+            for(var contact of contacts) {
+                if(!contact.marked) {
+                    umarkerte.push(contact);
+                }
+            }
+            // Bytter ut arrayet
+            contacts = umarkerte;
+            showContacts();
+        }
+
+        function marker(i) {
+            var contact = contacts[i];
+            var rad = document.querySelector(`#divContact > div:nth-child(${i + 1})`);
+            var ch = rad.querySelector("input[type=checkbox]");
+            console.log(ch);
+            if(ch.checked) {
+                contact.marked = true;
+            } else {
+                contact.marked = false;
+            }
+            console.log(contacts);
+            showContacts();
+        }
+
+
+        function showContacts() {
+            divContact.innerHTML = "";
+            for( var [indeks, contact] of contacts.entries() ) {
+                var checked = "";
+                if(contact.marked){
+                    checked = "checked";
+                }
+                divContact.innerHTML += `
+                    <div>
+                        <input type="checkbox" ${checked} onchange="marker(${indeks})">
+                        <span>${contact.firstname}</span>
+                        <span${contact.lastname}</span>
+                        <span><br><b>Tlf:</b> <i>${contact.phonenumber}</i></span>
+                        <span><br><b>Mail:</b> <i>${contact.Email}</i></span>
+                        <span><br>&nbsp;</span>
+                        <span><br>&nbsp;</span>
+                    </div>
+                `;
+            }
+
+        }
+
+        skjema.onsubmit = Addcontact;
+
+
+
+    </script>
+
+</body>
+</html>
